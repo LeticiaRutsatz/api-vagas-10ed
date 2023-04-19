@@ -28,6 +28,6 @@
     "scripts": {
         "start": "node ./dist/server.js",
         "build": "npx tsc --watch",
-        "dev": "ts-node-dev ./src/server.ts"
+        "dev": "ts-node-dev ./src/main/server.ts"
     }
 }
