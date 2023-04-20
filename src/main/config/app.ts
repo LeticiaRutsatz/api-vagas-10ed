@@ -4,7 +4,7 @@ import setupMiddlaware from './middlawares';
 
 const app = express();
 
-setupRoutes(app);
 setupMiddlaware(app);
+setupRoutes(app);
 
 export default app;
