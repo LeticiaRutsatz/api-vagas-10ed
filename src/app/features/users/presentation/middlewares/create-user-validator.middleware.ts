@@ -3,6 +3,10 @@ import { z, ZodError } from 'zod';
 import { Profile } from '../../../../shared/domain/enums';
 
 export const createUserValidator = (req: Request, res: Response, next: NextFunction) => {
+    if (typeof req.body.profile === 'string') {
+        req.body.profile = (req.body.profile as string).toUpperCase();
+    }
+
     const scheme = z.object({
         name: z.string().min(2),
         email: z.string().email(),
