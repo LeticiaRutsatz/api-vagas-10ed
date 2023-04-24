@@ -1,6 +1,11 @@
 import bcrypt from 'bcrypt';
 
-export class CryptoPassword {
+export interface CryptoPassword {
+    hashPassword(password: string): Promise<string>;
+    comparePassword(password: string, hash: string): Promise<boolean>;
+}
+
+export class BCryptPassword implements CryptoPassword {
     private salt = process.env.BCRYPT_SALT;
 
     async hashPassword(password: string): Promise<string> {
