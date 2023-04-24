@@ -6,6 +6,13 @@ Content-Type: application/json
 {
   "name": "Edson",
   "email": "edson@martins.com",
-  "profile": "RECRUITER",
-  "company": "teste"
+  "profile": "ADMIN"
 }
+
+# {
+#   "name": "Edson",
+#   "email": "edson@martins.com",
+#   "profile": "RECRUITER",
+#   "company": "Growdev"
+# }
+ 
