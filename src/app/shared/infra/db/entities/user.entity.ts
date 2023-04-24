@@ -12,4 +12,7 @@ export class UserEntity extends BaseEntity {
 
     @Column({ type: 'enum', enum: Profile })
     profile!: Profile;
+
+    @Column()
+    password!: string;
 }
