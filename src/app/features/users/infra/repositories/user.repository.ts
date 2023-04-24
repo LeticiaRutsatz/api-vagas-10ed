@@ -11,6 +11,12 @@ export class UserRepository {
     }
 
     async saveUser(user: UserDTO): Promise<void> {
-        await this._repository.save(user);
+        const entity = this._repository.create({
+            email: user.email,
+            name: user.name,
+            profile: user.profile,
+            password: user.password,
+        });
+        await this._repository.save(entity);
     }
 }
