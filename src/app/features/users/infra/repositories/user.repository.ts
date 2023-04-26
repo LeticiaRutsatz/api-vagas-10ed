@@ -1,16 +1,10 @@
+import { UserDetailDTO } from '../../../../shared/domain/dtos';
 import { appDataSource } from '../../../../shared/infra/db/data-source';
 import { UserEntity } from '../../../../shared/infra/db/entities';
-import { CreateUserDTO, UserDetailDTO } from '../../domain/dtos/user.dto';
+import { CreateUserDTO } from '../../domain/dtos';
 
 export class UserRepository {
     private _repository = appDataSource.getRepository(UserEntity);
-
-    async getUserByEmail(email: string): Promise<UserDetailDTO | undefined> {
-        const user = await this._repository.findOneBy({ email });
-        if (!user) return undefined;
-
-        return this.mapperToUserDetail(user);
-    }
 
     async saveUser(user: CreateUserDTO): Promise<UserDetailDTO> {
         const entity = this._repository.create({
