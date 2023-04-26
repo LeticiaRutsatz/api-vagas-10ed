@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { BCryptPassword } from '../../../../shared/adapters/crypto';
 import { UserSharedRepository } from '../../../../shared/infra/repositories';
 import { ok, unauthorized } from '../../../../shared/presentation/http-helper';
+import { JwtToken } from '../../../../shared/adapters/jwt';
 
 export class AuthenticationController {
     static async login(req: Request, res: Response) {
@@ -22,6 +23,22 @@ export class AuthenticationController {
         if (!correctPassword) {
             return unauthorized(res, { success: false, error: 'Incorret  a email or password.' });
         }
-        return ok(res, { success: true, data: user });
+
+        const jwtToken = new JwtToken();
+
+        const token = jwtToken.sign({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            profile: user.profile,
+        });
+
+        return ok(res, {
+            success: true,
+            data: {
+                token,
+                user: { id: user.id, name: user.name, email: user.email, profile: user.profile },
+            },
+        });
     }
 }
