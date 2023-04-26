@@ -1,6 +1,5 @@
-import { throws } from 'assert';
 import { NextFunction, Request, Response } from 'express';
-import { ZodError, object, z } from 'zod';
+import { ZodError, z } from 'zod';
 import { badRequest } from '../../../../shared/presentation/http-helper';
 
 export const loginValidation = (req: Request, res: Response, next: NextFunction) => {

@@ -5,7 +5,7 @@ import { badRequest, ok } from '../../../../shared/presentation/http-helper';
 import { UserSharedRepository } from '../../../../shared/infra/repositories';
 
 export class UserController {
-    static async createUser(req: Request, res: Response) {
+    async createUser(req: Request, res: Response) {
         const repository = new UserRepository();
         const sharedRepository = new UserSharedRepository();
         const bcrypt = new BCryptPassword();

@@ -5,7 +5,7 @@ import { ok, unauthorized } from '../../../../shared/presentation/http-helper';
 import { JwtToken } from '../../../../shared/adapters/jwt';
 
 export class AuthenticationController {
-    static async login(req: Request, res: Response) {
+    async login(req: Request, res: Response) {
         const { email, password } = req.body;
         const repository = new UserSharedRepository();
         const bcrypt = new BCryptPassword();
