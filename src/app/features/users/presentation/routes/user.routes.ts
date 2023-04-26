@@ -5,7 +5,7 @@ import { createUserValidator } from '../middlewares';
 export default () => {
     const router = express.Router();
 
-    router.post('/users', createUserValidator, new UserController().createUser);
+    router.post('/users', createUserValidator, UserController.createUser);
 
     return router;
 };
