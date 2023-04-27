@@ -14,7 +14,7 @@ export class JwtToken implements Token {
 
     verify(token: string): any {
         try {
-            return jwt.verify(token, jwtConfig.key, { maxAge: jwtConfig.maxAge });
+            return jwt.verify(token, jwtConfig.key);
         } catch (error) {
             if(error instanceof JsonWebTokenError){
                 throw new TokenError(error.message)
