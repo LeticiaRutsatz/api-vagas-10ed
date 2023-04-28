@@ -6,4 +6,5 @@ export interface CreateUserDTO {
     profile: Profile;
     password: string;
     company?: string;
+    userTryingToCreateAnotherProfile: string;
 }
