@@ -9,11 +9,13 @@ import { CustomError } from '../../../../shared/errors';
 export class UserController {
     async createUser(req: Request, res: Response) {
         const { name, email, profile, company } = req.body;
-        const userTryingToCreateAnotherProfile = req.user.profile;
         const password = process.env.ADMIN_PASSWORD!;
         try {
             const useCase = new CreateUserUseCase();
-            const user = await useCase.execute({ name, email, profile, company, password, userTryingToCreateAnotherProfile });
+            const user = await useCase.execute(
+                { name, email, profile, company, password },
+                req.user,
+            );
 
             return ok(res, { success: true, data: user });
         } catch (error: any) {
