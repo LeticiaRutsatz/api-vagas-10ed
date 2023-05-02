@@ -1,11 +1,12 @@
 @HOST = http://localhost:8080
 
 POST {{HOST}}/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzYTUxNTNkLTg4OWMtNDRkNi1iOWFlLTI0ZDk2ODVjNzMxNSIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoibkBtYXJ0aW5zLmNvbSIsInByb2ZpbGUiOiJSRUNSVUlURVIiLCJpYXQiOjE2ODI2NDExNDQsImV4cCI6MTY4MjY0NDc0NH0.BIHU3smeDMCDx7P6FRt1TikV_CY-9Y76lnDQe0J2438
 Content-Type: application/json
 
 {
   "name": "Edson",
-  "email": "edson@martins.com",
+  "email": "n@martins.com",
   "profile": "ADMIN"
 }
 

@@ -8,3 +8,8 @@ export interface UserDetailDTO {
     company?: string;
     password?: string;
 }
+
+export interface AuthUserDTO {
+    id: string;
+    profile: string;
+}
