@@ -1,9 +1,10 @@
-import jwt from 'jsonwebtoken';
+import jwt, { JsonWebTokenError } from 'jsonwebtoken';
 import { jwtConfig } from '../../../config/jwt.config';
+import { TokenError } from '../domain/errors';
 
 interface Token {
     sign(data: any): string;
-    verify(token: string): string | jwt.JwtPayload;
+    verify(token: string): any;
 }
 
 export class JwtToken implements Token {
@@ -11,7 +12,14 @@ export class JwtToken implements Token {
         return jwt.sign(data, jwtConfig.key, { expiresIn: jwtConfig.expireIn });
     }
 
-    verify(token: string): string | jwt.JwtPayload {
-        return jwt.verify(token, jwtConfig.key, { maxAge: jwtConfig.maxAge });
+    verify(token: string): any {
+        try {
+            return jwt.verify(token, jwtConfig.key);
+        } catch (error) {
+            if(error instanceof JsonWebTokenError){
+                throw new TokenError(error.message)
+            }
+            throw error
+        }
     }
 }
