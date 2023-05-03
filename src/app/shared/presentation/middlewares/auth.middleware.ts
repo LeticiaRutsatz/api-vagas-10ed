@@ -21,6 +21,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
         req.user = {
             id: auth.id,
             profile: auth.profile,
+            company: auth.company
         };
         return next();
     } catch (error) {
