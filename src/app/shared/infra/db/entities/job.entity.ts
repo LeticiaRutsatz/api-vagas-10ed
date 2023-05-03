@@ -19,8 +19,8 @@ export class JobEntity extends BaseEntity {
     @Column({ name: 'limit_date' })
     limitDate!: Date;
 
-    @Column({ name: 'max_candidates' })
-    maxCandidates!: number;
+    @Column({ name: 'max_candidate' })
+    maxCandidate!: number;
 
     @ManyToOne(() => UserEntity, (entity) => entity.jobs)
     @JoinColumn({ name: 'id_recruiter', referencedColumnName: 'id' })
