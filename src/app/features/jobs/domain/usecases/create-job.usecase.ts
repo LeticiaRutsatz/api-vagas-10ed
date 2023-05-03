@@ -1,8 +1,8 @@
-import { AuthUserDTO } from "../../../../shared/domain/dtos";
-import { Profile } from "../../../../shared/domain/enums";
-import { CustomError } from "../../../../shared/errors";
-import { CreateJobDTO } from "../dtos";
-import { JobRepository } from "../../infra/repositories/job.repository";
+import { AuthUserDTO } from '../../../../shared/domain/dtos';
+import { Profile } from '../../../../shared/domain/enums';
+import { CustomError } from '../../../../shared/errors';
+import { CreateJobDTO } from '../dtos';
+import { JobRepository } from '../../infra/repositories/job.repository';
 
 export class CreateJobUseCase {
     async execute(createJob: CreateJobDTO, authUser: AuthUserDTO): Promise<any> {
@@ -10,7 +10,16 @@ export class CreateJobUseCase {
             throw new CustomError('User is not RECRUITER');
         }
         const repository = new JobRepository();
-        await repository.createJob({ ...createJob, recruiterId: authUser.id, open: true, company: authUser.company! });
+        const job = await repository.createJob({
+            ...createJob,
+            idRecruiter: authUser.id,
+            open: true,
+            companyName: authUser.company!,
+        });
+
+        console.log('job', job);
+        console.log('auth', authUser);
+
+        return job;
     }
-    
 }
