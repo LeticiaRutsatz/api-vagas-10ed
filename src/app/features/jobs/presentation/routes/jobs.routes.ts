@@ -6,7 +6,7 @@ import { JobsController } from '../controllers';
 export default () => {
     const router = express.Router();
 
-    router.post('/jobs', createJobValidator, new JobsController().createJob);
+    router.post('/jobs', auth, createJobValidator, new JobsController().createJob);
 
     return router;
 };
