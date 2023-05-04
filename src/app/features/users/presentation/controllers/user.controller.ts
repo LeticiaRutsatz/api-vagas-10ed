@@ -5,6 +5,7 @@ import { UserSharedRepository } from '../../../../shared/infra/repositories';
 import { Profile } from '../../../../shared/domain/enums';
 import { CreateUserUseCase } from '../../domain/usecases/create-user.usecase';
 import { CustomError } from '../../../../shared/errors';
+import { ListUsersUseCase } from '../../domain/usecases/list-users.usecase';
 
 export class UserController {
     async createUser(req: Request, res: Response) {
@@ -25,5 +26,11 @@ export class UserController {
 
             throw error;
         }
+    }
+
+    async listUsers(req: Request, res: Response) {
+        const useCase = new ListUsersUseCase();
+        const users = await useCase.execute();
+        return ok(res, { success: true, data: users });
     }
 }
