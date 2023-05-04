@@ -29,11 +29,13 @@ export class LoginUseCase {
             name: user.name,
             email: user.email,
             profile: user.profile,
+            company: user.company,
         };
 
         const token = jwtToken.sign(userData);
         return {
-            ...userData,token
+            ...userData,
+            token,
         };
     }
 }

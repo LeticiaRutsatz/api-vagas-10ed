@@ -1,8 +1,5 @@
 import { Request, Response } from 'express';
-import { UserRepository } from '../../infra/repositories/user.repository';
 import { badRequest, ok } from '../../../../shared/presentation/http-helper';
-import { UserSharedRepository } from '../../../../shared/infra/repositories';
-import { Profile } from '../../../../shared/domain/enums';
 import { CreateUserUseCase } from '../../domain/usecases/create-user.usecase';
 import { CustomError } from '../../../../shared/errors';
 import { ListUsersUseCase } from '../../domain/usecases/list-users.usecase';
