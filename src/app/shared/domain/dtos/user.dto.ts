@@ -12,4 +12,5 @@ export interface UserDetailDTO {
 export interface AuthUserDTO {
     id: string;
     profile: string;
+    company?: string;
 }
