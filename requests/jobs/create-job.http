@@ -1,12 +1,12 @@
 @HOST = http://localhost:8080
 
 POST {{HOST}}/jobs HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzYTUxNTNkLTg4OWMtNDRkNi1iOWFlLTI0ZDk2ODVjNzMxNSIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoibkBtYXJ0aW5zLmNvbSIsInByb2ZpbGUiOiJSRUNSVUlURVIiLCJpYXQiOjE2ODI2NDExNDQsImV4cCI6MTY4MjY0NDc0NH0.BIHU3smeDMCDx7P6FRt1TikV_CY-9Y76lnDQe0J2438
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImExNjdhZTAzLWQ0NzQtNDk0Mi04M2FjLTYxYjUwMjY1M2FmNCIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoid2luZHNvbkBsYS5jb20iLCJwcm9maWxlIjoiUkVDUlVJVEVSIiwiY29tcGFueSI6IlNTIiwiaWF0IjoxNjgzMjQyMzA4LCJleHAiOjE2ODMyNDU5MDh9.7gaHT0UYsexvUw0QdUTRGoYmzJiodDMPudSonCzZB2g
 
 {
   "description": "dev jr",
-  "limitDate": "",
+  "limitDate": "2023-06-01",
   "maxCandidates": 1
 }
 

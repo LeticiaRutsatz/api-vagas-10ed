@@ -1,18 +1,18 @@
 @HOST = http://localhost:8080
 
 POST {{HOST}}/users HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY4ZDNlNWM3LTcxZDItNDcyMi05YzFkLWQ5ZDZkMWFhNWEwOCIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoiZWRzb25AbWFydGlucy5jb20iLCJwcm9maWxlIjoiQURNSU4iLCJpYXQiOjE2ODMxNTc5MjUsImV4cCI6MTY4MzE2MTUyNX0.EB4UTFH16qTif-fwzpnSkNOHzUZYse8Gp3W8E-KUWRE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImExNjdhZTAzLWQ0NzQtNDk0Mi04M2FjLTYxYjUwMjY1M2FmNCIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoid2luZHNvbkBsYS5jb20iLCJwcm9maWxlIjoiUkVDUlVJVEVSIiwiY29tcGFueSI6IlNTIiwiaWF0IjoxNjgzMjQyMDg4LCJleHAiOjE2ODMyNDU2ODh9.skMcwQdXCs4wTKZF2clL9_rTR0AeA7ixXvJZwUYQTMM
 Content-Type: application/json
 
 {
   "name": "Edson",
-  "email": "n@martins.com",
-  "profile": "ADMIN"
+  "email": "bobesponja@fendadobikini.com",
+  "profile": "RECRUITER"
 }
 
 # {
 #   "name": "Edson",
-#   "email": "edson@martins.com",
+#   "email": "bobesponja@fendadobikini.com",
 #   "profile": "RECRUITER",
 #   "company": "Growdev"
 # }

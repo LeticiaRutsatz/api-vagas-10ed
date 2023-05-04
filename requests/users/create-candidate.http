@@ -1,21 +1,11 @@
 @HOST = http://localhost:8080
 
 POST {{HOST}}/candidates HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY4ZDNlNWM3LTcxZDItNDcyMi05YzFkLWQ5ZDZkMWFhNWEwOCIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoiZWRzb25AbWFydGlucy5jb20iLCJwcm9maWxlIjoiQURNSU4iLCJpYXQiOjE2ODMxNTc5MjUsImV4cCI6MTY4MzE2MTUyNX0.EB4UTFH16qTif-fwzpnSkNOHzUZYse8Gp3W8E-KUWRE
 Content-Type: application/json
 
 {
   "name": "Edson",
-  "email": "bruno@martins.com",
-  "profile": "CANDIDATE",
+  "email": "lula@martins.com",
   "password": "password",
-  "passwordConfirm": "password"
+  "confirmPassword": "password"
 }
-
-# {
-#   "name": "Edson",
-#   "email": "edson@martins.com",
-#   "profile": "RECRUITER",
-#   "company": "Growdev"
-# }
- 
