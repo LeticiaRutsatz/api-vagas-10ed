@@ -26,10 +26,10 @@ export const createUserValidator = (req: Request, res: Response, next: NextFunct
         body.profile = (body.profile as string).toUpperCase();
     }
 
-    if (body.profile === Profile.CANDIDATE && req.user) {
+    if (body.profile === Profile.CANDIDATE) {
         return badRequest(res, { success: false, error: 'This profile cannot be created.' });
     }
-    
+
     const scheme = defineUserSchema(body.profile);
 
     try {
@@ -37,7 +37,7 @@ export const createUserValidator = (req: Request, res: Response, next: NextFunct
         Object.assign(
             req.body,
             data,
-            data.profile === Profile.RECRUITER ?  undefined : { company: undefined },
+            data.profile === Profile.ADMIN ? undefined : { company: undefined },
         );
         return next();
     } catch (error: any) {

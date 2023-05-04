@@ -1,21 +1,22 @@
-import { Request, Response } from "express";
-import { CreateCandidateUseCase } from "../../domain/usecases/create-candidate.usecase";
-import { badRequest, ok } from "../../../../shared/presentation/http-helper";
-import { CustomError } from "../../../../shared/errors";
-import { ListCandidateUseCase } from "../../domain/usecases/list-candidate.usecase";
+import { Request, Response } from 'express';
+import { CreateCandidateUseCase } from '../../domain/usecases';
+import { badRequest, ok } from '../../../../shared/presentation/http-helper';
+import { CustomError } from '../../../../shared/errors';
+import { Profile } from '../../../../shared/domain/enums';
 
-export class CandidateController{
-
+export class CandidateController {
     async createCandidate(req: Request, res: Response) {
-        const { name, email, profile, company, password, passwordConfirm } = req.body;
-        if(password != passwordConfirm){
-            return badRequest(res, { success: false, error: 'Passwords do not match' });
-        }
+        const { name, email, password } = req.body;
+
         try {
             const useCase = new CreateCandidateUseCase();
-            const user = await useCase.execute(
-                { name, email, profile, company, password },
-            );
+
+            const user = await useCase.execute({
+                name,
+                email,
+                profile: Profile.CANDIDATE,
+                password,
+            });
 
             return ok(res, { success: true, data: user });
         } catch (error: any) {
@@ -25,11 +26,5 @@ export class CandidateController{
 
             throw error;
         }
-    }
-
-    async listCandidates(req: Request, res: Response){
-        const useCase = new ListCandidateUseCase();
-        const candidates = await useCase.execute()
-        return ok(res, {success: true, data: candidates })
     }
 }

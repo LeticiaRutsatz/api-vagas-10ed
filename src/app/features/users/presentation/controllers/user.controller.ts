@@ -10,10 +10,7 @@ export class UserController {
         const password = process.env.ADMIN_PASSWORD!;
         try {
             const useCase = new CreateUserUseCase();
-            const user = await useCase.execute(
-                { name, email, profile, company, password },
-                req.user,
-            );
+            const user = await useCase.execute({ name, email, profile, company, password });
 
             return ok(res, { success: true, data: user });
         } catch (error: any) {

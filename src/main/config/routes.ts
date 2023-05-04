@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import { Express } from 'express';
 import userRoutes from '../../app/features/users/presentation/routes/user.routes';
 import loginRoutes from '../../app/features/authentication/presentation/routes/auth.routes';
 import jobsRoutes from '../../app/features/jobs/presentation/routes/jobs.routes';

@@ -7,11 +7,7 @@ import { Profile } from '../../../../shared/domain/enums';
 import { CustomError } from '../../../../shared/errors';
 
 export class CreateUserUseCase {
-    async execute(createUserDTO: CreateUserDTO, authUser: AuthUserDTO): Promise<UserDetailDTO> {
-        if (authUser.profile !== Profile.ADMIN) {
-            throw new CustomError('User is not ADMIN');
-        }
-
+    async execute(createUserDTO: CreateUserDTO): Promise<UserDetailDTO> {
         const repository = new UserRepository();
         const sharedRepository = new UserSharedRepository();
         const exists = await sharedRepository.getUserByEmail(createUserDTO.email);

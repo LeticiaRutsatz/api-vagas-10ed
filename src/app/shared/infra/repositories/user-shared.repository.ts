@@ -1,6 +1,4 @@
-import { Not } from 'typeorm';
 import { UserDetailDTO } from '../../domain/dtos';
-import { Profile } from '../../domain/enums';
 import { appDataSource } from '../db/data-source';
 import { UserEntity } from '../db/entities';
 
@@ -22,23 +20,9 @@ export class UserSharedRepository {
     }
 
     async getUserAll(): Promise<UserDetailDTO[]> {
-        const users = await this._repository.find({
-            where: {
-                profile: Not(Profile.CANDIDATE)
-            },
-        });
+        const users = await this._repository.find();
 
         return users.map((user) => this.mapperToUserDetail(user));
-    }
-
-    async getCandidates(): Promise<UserDetailDTO[]> {
-        const candidates = await this._repository.find({
-            where: {
-                profile: Profile.CANDIDATE,
-            },
-        });
-
-        return candidates.map((cand) => this.mapperToUserDetail(cand));
     }
 
     private mapperToUserDetail(entity: UserEntity, options?: GetUserByEmailOptions) {

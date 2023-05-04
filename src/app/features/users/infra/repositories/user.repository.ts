@@ -19,7 +19,7 @@ export class UserRepository {
         return this.mapperToUserDetail(entity);
     }
 
-    private mapperToUserDetail(entity: UserEntity) {
+    private mapperToUserDetail(entity: UserEntity): UserDetailDTO {
         return {
             id: entity.id,
             name: entity.name,
