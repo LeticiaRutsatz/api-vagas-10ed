@@ -10,7 +10,15 @@ Content-Type: application/json
 # } 
 
 # recruiter
+# {
+#   "email": "windson@la.com",
+#   "password": "turma@cabulosa"
+# } 
+
+
+
+# candidate
 {
-  "email": "windson@la.com",
-  "password": "turma@cabulosa"
+  "email": "bruno@martins.com",
+  "password": "password"
 } 
