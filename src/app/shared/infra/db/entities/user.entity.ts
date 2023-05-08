@@ -2,6 +2,7 @@ import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import BaseEntity from './base-entity.entity';
 import { Profile } from '../../../domain/enums';
 import { JobEntity } from './job.entity';
+import { CandidateJobEntity } from './candidate-job.entity';
 
 @Entity({ name: 'users' })
 export class UserEntity extends BaseEntity {
@@ -20,6 +21,9 @@ export class UserEntity extends BaseEntity {
     @Column()
     company!: string;
 
-    @OneToMany(()=> JobEntity, (entity) => entity.recruiter)
-    jobs!: JobEntity[]
+    @OneToMany(() => JobEntity, (entity) => entity.recruiter)
+    jobs!: JobEntity[];
+
+    @OneToMany(() => CandidateJobEntity, (entity) => entity.candidate)
+    candidatesJob!: CandidateJobEntity[];
 }
