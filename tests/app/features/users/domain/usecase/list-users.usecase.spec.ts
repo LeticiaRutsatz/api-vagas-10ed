@@ -4,8 +4,9 @@ import { Profile } from '../../../../../../src/app/shared/domain/enums';
 import { UserSharedRepository } from '../../../../../../src/app/shared/infra/repositories';
 
 describe('[Use Case] - List Users', () => {
-    it('List all users with 0 user.', async () => {
+    it('Should return a empty list', async () => {
         jest.spyOn(UserSharedRepository.prototype, 'getUserAll').mockResolvedValueOnce([]);
+
         const sut = new ListUsersUseCase();
 
         const users = await sut.execute();
