@@ -37,7 +37,7 @@ export const createUserValidator = (req: Request, res: Response, next: NextFunct
         Object.assign(
             req.body,
             data,
-            data.profile === Profile.ADMIN ? undefined : { company: undefined },
+            data.profile === Profile.ADMIN ? { company: undefined } : undefined,
         );
         return next();
     } catch (error: any) {

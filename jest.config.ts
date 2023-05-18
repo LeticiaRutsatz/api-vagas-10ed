@@ -20,15 +20,16 @@ export default {
     // collectCoverage: false,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
-    // collectCoverageFrom: undefined,
+    collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
 
     // The directory where Jest should output its coverage files
-    // coverageDirectory: undefined,
+    coverageDirectory: 'coverage',
 
     // An array of regexp pattern strings used to skip coverage collection
-    // coveragePathIgnorePatterns: [
-    //   "\\\\node_modules\\\\"
-    // ],
+    coveragePathIgnorePatterns: [
+        '<rootDir>/src/app/shared/infra/db/migrations',
+        '<rootDir>/src/main',
+    ],
 
     // Indicates which provider should be used to instrument code for coverage
     coverageProvider: 'v8',

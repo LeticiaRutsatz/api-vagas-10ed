@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { badRequest, ok } from '../../../../shared/presentation/http-helper';
+import { badRequest, internalError, ok } from '../../../../shared/presentation/http-helper';
 import { CreateUserUseCase } from '../../domain/usecases/create-user.usecase';
 import { CustomError } from '../../../../shared/errors';
 import { ListUsersUseCase } from '../../domain/usecases/list-users.usecase';
@@ -18,7 +18,7 @@ export class UserController {
                 return badRequest(res, { success: false, error: error.message });
             }
 
-            throw error;
+            return internalError(res, { success: false, error: error?.stack ?? error });
         }
     }
 
