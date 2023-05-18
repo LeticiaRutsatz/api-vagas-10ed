@@ -14,3 +14,9 @@ Content-Type: application/json
 #   "email": "windson@la.com",
 #   "password": "turma@cabulosa"
 # } 
+
+# candidate
+# {
+#   "email": "bruno@martins.com",
+#   "password": "password"
+# } 

@@ -1,0 +1,7 @@
+@HOST = http://localhost:8080
+
+POST {{HOST}}/jobs/5b840a97-c44d-43d7-bfe6-34462c347b5e/apply HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyOWE5MzgwLTQ4N2ItNGRkZS05NmJkLTRiMDcwOTMzN2I2MiIsIm5hbWUiOiJFZHNvbiIsImVtYWlsIjoiYnJ1bm9AbWFydGlucy5jb20iLCJwcm9maWxlIjoiQ0FORElEQVRFIiwiY29tcGFueSI6bnVsbCwiaWF0IjoxNjgzMjQ5MDY0LCJleHAiOjE2ODMyNTI2NjR9.4mV9jkmN2w8Wrm6UIY4Q0wZqAUAj2uEK6CcHaHpMqMI
+
+
