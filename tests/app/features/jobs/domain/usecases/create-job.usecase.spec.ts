@@ -26,7 +26,7 @@ const createJobDTO = (maxCandidate?: number): CreateJobDTO => ({
 });
 
 describe('[Use Case] - Create Job', () => {
-    it('Should return erro with message User is not RECRUITER', async () => {
+    it('Should return error with message User is not RECRUITER', async () => {
         const sut = new CreateJobUseCase();
         const promise = sut.execute(createJobDTO(), createAuthUserDTO(Profile.ADMIN));
 
